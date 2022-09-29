@@ -1,0 +1,1 @@
+# TODO: return vehicle fields

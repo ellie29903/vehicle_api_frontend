@@ -1,0 +1,2094 @@
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVehicles (20220927165948)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "vehicles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927165948"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-28 13:01:00.167561"], ["updated_at", "2022-09-28 13:01:00.167561"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColsToVehicle (20220928130134)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "vehicles" ADD "make" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "vehicles" ADD "model" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "vehicles" ADD "year" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "vehicles" ADD "battery" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "vehicles" ADD "maxrange" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220928130134"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVehicle Create (0.2ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-28 13:02:13.358058"], ["updated_at", "2022-09-28 13:02:13.358058"], ["make", "Tesla"], ["model", "Model 3"], ["year", 2015], ["battery", 5000], ["maxrange", 2000]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2022-09-28 14:16:38 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.0ms | Allocations: 445)
+Completed 200 OK in 12ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3654)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 14:16:48 +0100
+Processing by VehiclesController#index as */*
+  Rendering vehicles/index.json.jbuilder
+  Rendered vehicles/index.json.jbuilder (Duration: 11.7ms | Allocations: 5494)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms | Allocations: 7232)
+
+
+  
+ActionView::Template::Error (undefined method `size' for #<Class:0x000000011ea67470>):
+    1: json.array! @vehicles, partial: "vehicles/vehicle", as: :vehicle
+  
+app/views/vehicles/index.json.jbuilder:1
+Started GET "/vehicles" for ::1 at 2022-09-28 14:19:02 +0100
+Processing by VehiclesController#index as */*
+Completed 500 Internal Server Error in 4ms (Allocations: 3210)
+
+
+  
+NameError (undefined local variable or method `vehicles' for #<VehiclesController:0x00000000008fc0>
+Did you mean?  @vehicles):
+  
+app/controllers/vehicles_controller.rb:6:in `index'
+Started GET "/vehicles" for ::1 at 2022-09-28 14:20:22 +0100
+Processing by VehiclesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3875)
+
+
+  
+NameError (undefined local variable or method `vehicles' for #<VehiclesController:0x0000000000a1e0>
+Did you mean?  @vehicles):
+  
+app/controllers/vehicles_controller.rb:6:in `index'
+Started GET "/" for ::1 at 2022-09-28 14:20:28 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.1ms | Allocations: 215)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 875)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 14:20:33 +0100
+Processing by VehiclesController#index as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3005)
+
+
+  
+NameError (undefined local variable or method `vehicles' for #<VehiclesController:0x0000000000a618>
+Did you mean?  @vehicles):
+  
+app/controllers/vehicles_controller.rb:6:in `index'
+Started GET "/vehicles" for ::1 at 2022-09-28 14:20:54 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.5ms | Allocations: 6309)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 14:20:58 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1054)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 14:22:19 +0100
+  
+SyntaxError (/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:6: syntax error, unexpected '}', expecting =>
+    render json: {vehicles}
+                          ^
+/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:28: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/vehicles_controller.rb:6: syntax error, unexpected '}', expecting =>
+app/controllers/vehicles_controller.rb:28: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/vehicles_controller.rb:6: syntax error, unexpected '}', expecting =>
+app/controllers/vehicles_controller.rb:28: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/vehicles_controller.rb:6: syntax error, unexpected '}', expecting =>
+app/controllers/vehicles_controller.rb:28: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/vehicles" for ::1 at 2022-09-28 14:22:32 +0100
+Processing by VehiclesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 5474)
+
+
+Started GET "/vehicles/1" for ::1 at 2022-09-28 14:23:38 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 5626)
+
+
+Started GET "/vehicles/2" for ::1 at 2022-09-28 14:23:41 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1020)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=2):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles/1" for ::1 at 2022-09-28 14:23:43 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 829)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 14:57:50 +0100
+Processing by VehiclesController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (Allocations: 432)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles" for ::1 at 2022-09-28 15:00:38 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test1", "model"=>"audi", "year"=>2020, "battery"=>100, "maxrange"=>259, "vehicle"=>{"make"=>"test1", "model"=>"audi", "year"=>2020, "battery"=>100, "maxrange"=>259}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.2ms | Allocations: 378)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles" for ::1 at 2022-09-28 15:00:58 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test1", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test1", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms | Allocations: 438)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles" for ::1 at 2022-09-28 15:02:44 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test1", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test1", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.3ms | Allocations: 392)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles?make=audi" for ::1 at 2022-09-28 15:04:12 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"audi", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"audi", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.4ms | Allocations: 392)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles?make=test1&model=audi&year=2000&battery=23&maxrange=588" for ::1 at 2022-09-28 15:04:59 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test1", "model"=>"audi", "year"=>"2000", "battery"=>"23", "maxrange"=>"588", "vehicle"=>{}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 438)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (6.1.7) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (6.1.7) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/vehicles?make=test1&model=audi&year=2000&battery=23&maxrange=588" for ::1 at 2022-09-28 15:07:11 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test1", "model"=>"audi", "year"=>"2000", "battery"=>"23", "maxrange"=>"588", "vehicle"=>{"make"=>"test1", "model"=>"audi", "year"=>"2000", "battery"=>"23", "maxrange"=>"588"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+  [1m[36mVehicle Create (0.4ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-28 14:07:11.484677"], ["updated_at", "2022-09-28 14:07:11.484677"], ["make", "test1"], ["model", "audi"], ["year", 2000], ["battery", 23], ["maxrange", 588]]
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 5559)
+
+
+Started DELETE "/vehicles/1" for ::1 at 2022-09-28 15:11:49 +0100
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for VehiclesController
+Did you mean?  index
+               create
+               show):
+  
+actionpack (6.1.7) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started DELETE "/vehicles/1" for ::1 at 2022-09-28 15:12:29 +0100
+Processing by VehiclesController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:33:in `destroy'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:34:in `destroy'
+  [1m[36mVehicle Destroy (0.2ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/vehicles_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:34:in `destroy'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 7150)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 15:12:48 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1046)
+
+
+Started PUT "/vehicles/2" for ::1 at 2022-09-28 15:15:44 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"2", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:42:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 6769)
+
+
+  
+NoMethodError (undefined method `update_attributes' for #<Vehicle:0x000000014f28cf30>
+Did you mean?  update_attribute):
+  
+app/controllers/vehicles_controller.rb:43:in `update'
+Started PUT "/vehicles/2" for ::1 at 2022-09-28 15:16:01 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"2", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:42:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.5ms | Allocations: 4286)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 2)):
+  
+app/controllers/vehicles_controller.rb:43:in `update'
+Started PUT "/vehicles/2" for ::1 at 2022-09-28 15:17:39 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"2", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:42:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 6764)
+
+
+  
+NoMethodError (undefined method `update_attributes' for #<Vehicle:0x000000010f22b1a8>
+Did you mean?  update_attribute):
+  
+app/controllers/vehicles_controller.rb:43:in `update'
+Started PUT "/vehicles/2" for ::1 at 2022-09-28 15:19:52 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"2", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:42:in `update'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3997)
+
+
+Started PUT "/vehicles/2" for ::1 at 2022-09-28 15:42:24 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"2", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:42:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:43:in `update'
+  [1m[36mVehicle Update (0.3ms)[0m  [1m[33mUPDATE "vehicles" SET "updated_at" = ?, "make" = ?, "year" = ?, "battery" = ?, "maxrange" = ? WHERE "vehicles"."id" = ?[0m  [["updated_at", "2022-09-28 14:42:24.588567"], ["make", "updated make"], ["year", 2020], ["battery", 100], ["maxrange", 259], ["id", 2]]
+  ↳ app/controllers/vehicles_controller.rb:43:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:43:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 6031)
+
+
+Started PUT "/vehicles" for ::1 at 2022-09-28 15:45:41 +0100
+  
+ActionController::RoutingError (No route matches [PUT] "/vehicles"):
+  
+Started PUT "/vehicle" for ::1 at 2022-09-28 15:45:50 +0100
+  
+ActionController::RoutingError (No route matches [PUT] "/vehicle"):
+  
+Started GET "/vehicles" for ::1 at 2022-09-28 15:46:29 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1046)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 15:58:50 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+  [1m[36mVehicle Create (0.2ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-28 14:58:50.977634"], ["updated_at", "2022-09-28 14:58:50.977634"], ["make", "test3"], ["model", "audi"], ["year", 2022], ["battery", 100], ["maxrange", 259]]
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mVehicle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? AND "vehicles"."battery" = ? AND "vehicles"."maxrange" = ? LIMIT ?[0m  [["make", "test3"], ["model", "audi"], ["year", 2022], ["battery", 100], ["maxrange", 259], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 6052)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 16:01:25 +0100
+  
+SyntaxError (/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:24: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+        render json: {data:vehicle}
+               ^~~~~
+/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:60: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/vehicles_controller.rb:24: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+app/controllers/vehicles_controller.rb:60: syntax error, unexpected `end', expecting end-of-input
+app/controllers/vehicles_controller.rb:24: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+app/controllers/vehicles_controller.rb:60: syntax error, unexpected `end', expecting end-of-input
+app/controllers/vehicles_controller.rb:24: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+app/controllers/vehicles_controller.rb:60: syntax error, unexpected `end', expecting end-of-input
+Started POST "/vehicles" for ::1 at 2022-09-28 16:01:49 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mVehicle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? AND "vehicles"."battery" = ? AND "vehicles"."maxrange" = ? LIMIT ?[0m  [["make", "test3"], ["model", "audi"], ["year", 2022], ["battery", 100], ["maxrange", 259], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:20:in `create'
+No template found for VehiclesController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.4ms | Allocations: 2516)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 16:06:08 +0100
+  
+SyntaxError (/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/vehicles_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/vehicles_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/vehicles_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/vehicles" for ::1 at 2022-09-28 16:06:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test3", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? LIMIT ?[0m  [["make", "test3"], ["model", "audi"], ["year", 2022], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:20:in `create'
+No template found for VehiclesController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.7ms | Allocations: 976)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 16:06:38 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.8ms | Allocations: 4133)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 16:06:56 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test4", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test4", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? LIMIT ?[0m  [["make", "test4"], ["model", "audi"], ["year", 2022], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:20:in `create'
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+  [1m[36mVehicle Create (0.7ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-28 15:06:56.837530"], ["updated_at", "2022-09-28 15:06:56.837530"], ["make", "test4"], ["model", "audi"], ["year", 2022], ["battery", 100], ["maxrange", 259]]
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 3030)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 16:07:01 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1296)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 16:07:50 +0100
+Processing by VehiclesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 5699)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 16:07:55 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"test4", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259", "vehicle"=>{"make"=>"test4", "model"=>"audi", "year"=>"2022", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? LIMIT ?[0m  [["make", "test4"], ["model", "audi"], ["year", 2022], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:20:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 892)
+
+
+Started GET "/vehicles/tesla" for ::1 at 2022-09-28 16:26:02 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"tesla", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 1179)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=tesla):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles/'make'=tesla" for ::1 at 2022-09-28 16:26:20 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"'make'=tesla", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.3ms | Allocations: 1019)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'='make'=tesla):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles" for ::1 at 2022-09-28 16:26:51 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"vehicle"=>{}}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms | Allocations: 4117)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-28 16:27:21 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"filtertest", "model"=>"tesla", "year"=>"2023", "battery"=>"1000", "maxrange"=>"29", "vehicle"=>{"make"=>"filtertest", "model"=>"tesla", "year"=>"2023", "battery"=>"1000", "maxrange"=>"29"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? LIMIT ?[0m  [["make", "filtertest"], ["model", "tesla"], ["year", 2023], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:20:in `create'
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+  [1m[36mVehicle Create (0.7ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-28 15:27:21.623299"], ["updated_at", "2022-09-28 15:27:21.623299"], ["make", "filtertest"], ["model", "tesla"], ["year", 2023], ["battery", 1000], ["maxrange", 29]]
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:23:in `create'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 3053)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 16:27:25 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (1.6ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.6ms | Allocations: 1422)
+
+
+Started PUT "/vehicles/5" for ::1 at 2022-09-28 16:27:45 +0100
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259", "id"=>"5", "vehicle"=>{"make"=>"updated make", "model"=>"audi", "year"=>"2020", "battery"=>"100", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:47:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+  [1m[36mVehicle Update (1.4ms)[0m  [1m[33mUPDATE "vehicles" SET "updated_at" = ?, "make" = ?, "model" = ?, "year" = ?, "battery" = ?, "maxrange" = ? WHERE "vehicles"."id" = ?[0m  [["updated_at", "2022-09-28 15:27:45.595384"], ["make", "updated make"], ["model", "audi"], ["year", 2020], ["battery", 100], ["maxrange", 259], ["id", 5]]
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 3001)
+
+
+Started PUT "/vehicles/5" for ::1 at 2022-09-28 16:28:10 +0100
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"Tesla", "model"=>"filtertest", "year"=>"2023", "battery"=>"1050", "maxrange"=>"2590", "id"=>"5", "vehicle"=>{"make"=>"Tesla", "model"=>"filtertest", "year"=>"2023", "battery"=>"1050", "maxrange"=>"2590"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:47:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+  [1m[36mVehicle Update (0.6ms)[0m  [1m[33mUPDATE "vehicles" SET "updated_at" = ?, "make" = ?, "model" = ?, "year" = ?, "battery" = ?, "maxrange" = ? WHERE "vehicles"."id" = ?[0m  [["updated_at", "2022-09-28 15:28:10.669228"], ["make", "Tesla"], ["model", "filtertest"], ["year", 2023], ["battery", 1050], ["maxrange", 2590], ["id", 5]]
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:49:in `update'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 2998)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-28 16:28:13 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.6ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1422)
+
+
+Started GET "/vehicles/Tesla" for ::1 at 2022-09-28 16:37:08 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"Tesla"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.5ms | Allocations: 1640)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=Tesla):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-28 16:41:02 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.6ms | Allocations: 4444)
+
+
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-28 16:41:41 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 4407)
+
+
+Started GET "/vehicles?make=%22Tesla%22" for ::1 at 2022-09-28 16:42:08 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"\"Tesla\"", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1423)
+
+
+Started GET "/vehicles?%22make%22=%22Tesla%22" for ::1 at 2022-09-28 16:42:20 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"\"make\""=>"\"Tesla\"", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1422)
+
+
+Started GET "/vehicles?%22make%22=%22Tesla%22" for ::1 at 2022-09-28 16:44:22 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"\"make\""=>"\"Tesla\"", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1422)
+
+
+Started GET "/vehicles?make=none" for ::1 at 2022-09-28 16:47:58 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"none", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1422)
+
+
+Started GET "/vehicles/Tesla" for ::1 at 2022-09-29 09:39:27 +0100
+Processing by VehiclesController#show as */*
+  Parameters: {"id"=>"Tesla"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2264)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=Tesla):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles" for ::1 at 2022-09-29 09:39:35 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" /* loading for inspect */ ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 6354)
+
+
+  [1m[36mCACHE Vehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" /* loading for inspect */ ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `paginate' for #<Vehicle::ActiveRecord_Relation:0x000000013f27dd10>):
+  
+app/controllers/vehicles_controller.rb:5:in `index'
+Started GET "/vehicles" for ::1 at 2022-09-29 09:53:45 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" /* loading for inspect */ ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms | Allocations: 4105)
+
+
+  [1m[36mCACHE Vehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" /* loading for inspect */ ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `paginate' for #<Vehicle::ActiveRecord_Relation:0x000000013f4285c0>):
+  
+app/controllers/vehicles_controller.rb:5:in `index'
+Started GET "/vehicles" for ::1 at 2022-09-29 09:54:06 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 5858)
+
+
+Started GET "/vehicles/index" for ::1 at 2022-09-29 09:54:11 +0100
+Processing by VehiclesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 1148)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=index):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/" for ::1 at 2022-09-29 09:54:38 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.2ms | Allocations: 214)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 820)
+
+
+Started GET "/index" for ::1 at 2022-09-29 09:54:42 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/" for ::1 at 2022-09-29 09:55:06 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 45)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 357)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 09:55:22 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 1418)
+
+
+Started GET "/vehicles/index" for ::1 at 2022-09-29 09:55:29 +0100
+Processing by VehiclesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1018)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=index):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles/index" for ::1 at 2022-09-29 09:55:33 +0100
+Processing by VehiclesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:12:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1017)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=index):
+  
+app/controllers/vehicles_controller.rb:12:in `show'
+Started GET "/vehicles" for ::1 at 2022-09-29 09:55:40 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1429)
+
+
+Started GET "/" for ::1 at 2022-09-29 09:56:34 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ellie/.rvm/gems/ruby-2.7.3/gems/railties-6.1.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 13.0ms | Allocations: 214)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 821)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 09:56:39 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1418)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:14:20 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 4.8ms | ActiveRecord: 0.4ms | Allocations: 7017)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:14:30 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 1526)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:14:42 +0100
+Processing by VehiclesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 5640)
+
+
+Started GET "/vehicles?page=1&per=2" for ::1 at 2022-09-29 10:24:39 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"page"=>"1", "per"=>"2"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 2], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.3ms | Allocations: 5299)
+
+
+Started GET "/vehicles?page=1&per=3" for ::1 at 2022-09-29 10:24:44 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"page"=>"1", "per"=>"3"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 1399)
+
+
+Started GET "/vehicles?make=1" for ::1 at 2022-09-29 10:37:47 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2662)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=1):
+  
+app/controllers/vehicles_controller.rb:5:in `index'
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 10:41:20 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1382)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=Tesla):
+  
+app/controllers/vehicles_controller.rb:5:in `index'
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 10:42:02 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 2921)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=Tesla):
+  
+app/controllers/vehicles_controller.rb:5:in `index'
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 10:42:28 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE (Tesla) ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 2988)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: Tesla):
+  
+app/controllers/vehicles_controller.rb:6:in `index'
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 10:42:50 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:5:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "Tesla"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 5773)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:43:12 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" IS NULL ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1039)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:44:20 +0100
+  
+SyntaxError (/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+    if params[:make] nil
+                     ^~~
+/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:7: else without rescue is useless
+    else
+    ^~~~
+):
+  
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+Started GET "/vehicles" for ::1 at 2022-09-29 10:44:39 +0100
+  
+SyntaxError (/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+    if params[:make] nil
+                     ^~~
+/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:7: else without rescue is useless
+    else
+    ^~~~
+/Users/ellie/Desktop/vehicle_api/app/controllers/vehicles_controller.rb:74: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+app/controllers/vehicles_controller.rb:74: syntax error, unexpected `end', expecting end-of-input
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+app/controllers/vehicles_controller.rb:74: syntax error, unexpected `end', expecting end-of-input
+app/controllers/vehicles_controller.rb:5: syntax error, unexpected `nil', expecting `then' or ';' or '\n'
+app/controllers/vehicles_controller.rb:7: else without rescue is useless
+app/controllers/vehicles_controller.rb:74: syntax error, unexpected `end', expecting end-of-input
+Started GET "/vehicles" for ::1 at 2022-09-29 10:45:38 +0100
+Processing by VehiclesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 6053)
+
+
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 10:45:53 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "Tesla"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1170)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:45:58 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.6ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1506)
+
+
+Started GET "/vehicles?make=test4" for ::1 at 2022-09-29 10:46:06 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"test4"}
+  [1m[36mVehicle Load (2.6ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "test4"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 2.6ms | Allocations: 1168)
+
+
+Started GET "/vehicles?make=geg" for ::1 at 2022-09-29 10:46:11 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"geg"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "geg"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 1042)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:48:12 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1506)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 10:48:26 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1506)
+
+
+Started GET "/vehicles/index" for ::1 at 2022-09-29 11:03:13 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VehiclesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:16:in `show'
+Completed 404 Not Found in 12ms (ActiveRecord: 0.4ms | Allocations: 3415)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehicle with 'id'=index):
+  
+app/controllers/vehicles_controller.rb:16:in `show'
+Started GET "/vehicles" for ::1 at 2022-09-29 11:06:18 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.5ms | Allocations: 5403)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:07:09 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 6116)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:07:10 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1505)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:12:15 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 5561)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:12:21 +0100
+  
+ActionController::RoutingError (uninitialized constant VehicleController
+Did you mean?  VehiclesController):
+  
+Started GET "/vehicles" for ::1 at 2022-09-29 11:12:32 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 1504)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:15:09 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 6031)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:15:12 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.9ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.9ms | Allocations: 1505)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:15:12 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1519)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:15:14 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 1503)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:15:15 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1502)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:17:07 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.7ms | Allocations: 6003)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:17:10 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1505)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:17:11 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1503)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:20:24 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:6:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 6031)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:20:27 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1505)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:20:29 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1502)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:23:43 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 1502)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:24:23 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.5ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1502)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:40:41 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 5545)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:40:41 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1505)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:40:43 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1502)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:41:52 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 1502)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:42:10 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1602)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1667)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 3870)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:42:45 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 6043)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:42:46 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1505)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:42:52 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1463)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1527)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 3004)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:44:59 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" /* loading for inspect */ ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:16:in `p'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1425)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1490)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 7621)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:45:54 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 4288)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4353)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms | Allocations: 6524)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `vehicles' for #<ActionView::Base:0x000000000140a0>
+Did you mean?  vehicles_url):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:46:04 +0100
+Processing by VehiclesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1688)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2882)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:46:36 +0100
+Processing by VehiclesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1463)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 1527)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1912)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:46:39 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/vehicles/index.html.erb:9
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 4472)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in `initialize'
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `new'
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 318.2ms | Allocations: 24784)
+Completed 500 Internal Server Error in 320ms (ActiveRecord: 0.4ms | Allocations: 26263)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /Users/ellie/Desktop/vehicle_api/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2022-09-29 11:47:19 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1424)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1488)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 2965)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6: <%
+     7: =end%>
+     8: <ul>
+     9:     <% @vehicles.each do |vehicle| %>
+    10:         <li><%= link_to vehicle.make, vehicle_path(vehicle)%></li>
+    11:     <%end%>
+    12: </ul>
+  
+app/views/vehicles/index.html.erb:9
+Started GET "/" for ::1 at 2022-09-29 11:48:36 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/vehicles/index.html.erb:9
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 4455)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in `initialize'
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `new'
+	from /Users/ellie/.rvm/gems/ruby-2.7.3/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 276.5ms | Allocations: 9787)
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 0.8ms | Allocations: 11266)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /Users/ellie/Desktop/vehicle_api/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2022-09-29 11:51:37 +0100
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VehiclesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/vehicles/index.html.erb:9
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 5431)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/ellie/Desktop/vehicle_api/public/packs
+[Webpacker] Hash: 0fe7dcd9d8f9ebcf52de
+Version: webpack 4.46.0
+Time: 586ms
+Built at: 29/09/2022 11:51:39
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-2e212f7c8f867558ac6e.js    121 KiB  application  [emitted] [immutable]  application
+js/application-2e212f7c8f867558ac6e.js.map    136 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-2e212f7c8f867558ac6e.js js/application-2e212f7c8f867558ac6e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1519.0ms | Allocations: 12603)
+Completed 200 OK in 1533ms (Views: 1521.1ms | ActiveRecord: 0.5ms | Allocations: 15815)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:52:04 +0100
+Processing by VehiclesController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/vehicles/index.html.erb:9
+  Rendered vehicles/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 908)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4537)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.4ms | Allocations: 5159)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:52:24 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 4084)
+
+
+  
+NameError (undefined local variable or method `vehicles' for #<VehiclesController:0x000000000094e8>
+Did you mean?  @vehicles):
+  
+app/controllers/vehicles_controller.rb:14:in `index'
+Started GET "/" for ::1 at 2022-09-29 11:52:33 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 6450)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:53:29 +0100
+Processing by VehiclesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/vehicles_controller.rb:10:in `index'
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 6115)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:53:32 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1562)
+
+
+Started GET "/vehicles?make=none" for ::1 at 2022-09-29 11:53:52 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"none", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "none"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1375)
+
+
+Started GET "/vehicles?make=Tesla" for ::1 at 2022-09-29 11:53:56 +0100
+Processing by VehiclesController#index as */*
+  Parameters: {"make"=>"Tesla", "vehicle"=>{}}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."make" = ? ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["make", "Tesla"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1219)
+
+
+Started PUT "/vehicles/5" for ::1 at 2022-09-29 11:54:18 +0100
+Processing by VehiclesController#update as */*
+  Parameters: {"make"=>"Kia", "model"=>"thisisatest", "year"=>"2013", "battery"=>"1030", "maxrange"=>"259", "id"=>"5", "vehicle"=>{"make"=>"Kia", "model"=>"thisisatest", "year"=>"2013", "battery"=>"1030", "maxrange"=>"259"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:55:in `update'
+[31mUnpermitted parameters: :id, :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:56:in `update'
+  [1m[36mVehicle Update (0.9ms)[0m  [1m[33mUPDATE "vehicles" SET "updated_at" = ?, "make" = ?, "model" = ?, "year" = ?, "battery" = ?, "maxrange" = ? WHERE "vehicles"."id" = ?[0m  [["updated_at", "2022-09-29 10:54:18.477448"], ["make", "Kia"], ["model", "thisisatest"], ["year", 2013], ["battery", 1030], ["maxrange", 259], ["id", 5]]
+  ↳ app/controllers/vehicles_controller.rb:56:in `update'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:56:in `update'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 5.4ms | Allocations: 3375)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:54:22 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (1.0ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 1.0ms | Allocations: 1558)
+
+
+Started POST "/vehicles" for ::1 at 2022-09-29 11:57:23 +0100
+Processing by VehiclesController#create as */*
+  Parameters: {"make"=>"Audi", "model"=>"testmodel", "year"=>"2012", "battery"=>"1020", "maxrange"=>"219", "vehicle"=>{"make"=>"Audi", "model"=>"testmodel", "year"=>"2012", "battery"=>"1020", "maxrange"=>"219"}}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "vehicles" WHERE "vehicles"."make" = ? AND "vehicles"."model" = ? AND "vehicles"."year" = ? LIMIT ?[0m  [["make", "Audi"], ["model", "testmodel"], ["year", 2012], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29:in `create'
+[31mUnpermitted parameter: :vehicle[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:31:in `create'
+  [1m[36mVehicle Create (0.7ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at", "make", "model", "year", "battery", "maxrange") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2022-09-29 10:57:23.811866"], ["updated_at", "2022-09-29 10:57:23.811866"], ["make", "Audi"], ["model", "testmodel"], ["year", 2012], ["battery", 1020], ["maxrange", 219]]
+  ↳ app/controllers/vehicles_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:31:in `create'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 4.5ms | Allocations: 3167)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:57:27 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1686)
+
+
+Started DELETE "/vehicles/3" for ::1 at 2022-09-29 11:59:09 +0100
+Processing by VehiclesController#destroy as */*
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:46:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:47:in `destroy'
+  [1m[36mVehicle Destroy (1.2ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/vehicles_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:47:in `destroy'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 6.7ms | Allocations: 2630)
+
+
+Started GET "/vehicles" for ::1 at 2022-09-29 11:59:12 +0100
+Processing by VehiclesController#index as */*
+  [1m[36mVehicle Load (0.7ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.7ms | Allocations: 1558)
+
+
+Started GET "/" for ::1 at 2022-09-29 11:59:35 +0100
+Processing by VehiclesController#index as HTML
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/vehicles_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 1554)
+
+
